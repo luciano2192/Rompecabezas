@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>BMO Arcade</title>
+  <link rel="stylesheet" href="css/juego.css">
+</head>
+
+<body>
+  <div class="col-40">
+    <div id="titulo">
+      <h1>Rompecabezas</h1>
+    </div>
+    <div id="instrucciones">
+      <h2 class="titulos-secciones">Instrucciones</h2>
+      <ul id="listaInstrucciones">
+      </ul>
+    </div>
+    <div id="objetivo">
+      <h2 class="titulos-secciones">Objetivo</h2>
+      <div class="texto-centrado">
+        <img src="images/final.png" alt="imagen objetivo">
+      </div>
+    </div>
+    <div id="ultimo-mov">
+      <h2 class="titulos-secciones">Último movimiento</h2>
+      <div id="flecha" class="texto-centrado">
+      </div>
+    </div>
+  </div>
+  <div class="col-60">
+    <div id="juego">
+      <div class="piezas-juego" id="pieza1"><img src="images/10.jpg" alt="imagen 1"></div>
+      <div class="piezas-juego" id="pieza2"><img src="images/20.jpg" alt="imagen 2"></div>
+      <div class="piezas-juego" id="pieza3"><img src="images/30.jpg" alt="imagen 3"></div>
+      <div class="piezas-juego" id="pieza4"><img src="images/40.jpg" alt="imagen 4"></div>
+      <div class="piezas-juego" id="pieza5"><img src="images/50.jpg" alt="imagen 5"></div>
+      <div class="piezas-juego" id="pieza6"><img src="images/60.jpg" alt="imagen 6"></div>
+      <div class="piezas-juego" id="pieza7"><img src="images/70.jpg" alt="imagen 7"></div>
+      <div class="piezas-juego" id="pieza8"><img src="images/80.jpg" alt="imagen 8"></div>
+      <div class="piezas-juego" id="pieza9"></div>
+    </div>
+  </div>
+  <div id="footer">
+    <p>Autor: Luciano Greco >> Desarrollador Front-End Jr.</p>
+  </div>
+  <div id="cartelGanador" class="cartel-ganador">
+    <h3>¡¡ GANASTE !!</h3>
+    <button type="button" name="button">Reiniciar</button>
+    <button type="button" name="button">Salir</button>
+  </div>
+  <script src="js/juego.js"></script>
+</body>
+
+</html>

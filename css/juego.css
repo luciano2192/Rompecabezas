@@ -1,0 +1,141 @@
+/*Código armado por La Foca Loca S.A. No modificar*/
+body {
+  font-family: Arial, sans-serif;
+  width: 940px;
+  margin: 5% auto;
+  min-height: 100%;
+  background-image: url(../images/adventure.jpg);
+}
+ul {
+  padding-left: 0;
+  list-style: none;
+}
+li {
+  padding: 5px 0;
+  animation: fadein 5s;
+}
+li::before {
+  content: "• ";
+  color: #EC6778;
+}
+
+.col-40 h1 {
+  font-size: 1.1rem;
+  color: white;
+  background: #E84A5F;
+  letter-spacing: 0.5rem;
+  padding: 0.3rem 0 0.3rem 0.7rem;
+}
+
+.titulos-secciones {
+  font-size: 1.2rem;
+  color: #E84A5F;
+  letter-spacing: 0.1rem;
+  margin-top: 10%;
+}
+
+.col-40, .col-60 {
+  display: table-cell;
+  margin: 0;
+  vertical-align: top;
+}
+.col-40 {
+  background: #FFF;
+  padding: 1.2rem;
+  color: #000;
+}
+
+.col-60 {
+  background: #E84A5F;
+}
+
+#flecha{
+  font-size: 60px;
+}
+
+.texto-centrado {
+  text-align: center;
+}
+
+#objetivo img {
+  width: 70%;
+}
+
+#juego {
+  width: 660px;
+  height: 660px;
+}
+
+#juego div {
+  text-align: center;
+  animation: fadein 2s;
+  float: left;
+  height: 33.3%;
+  width: 33.3%;
+}
+
+.piezas-juego img {
+  height: 100%;
+  width: 100%;
+  border: 1px solid black;
+}
+
+#footer{
+  display: inline-block;
+  background: #323643;
+  height: 3rem;
+  width: 100%;
+  text-align: center;
+}
+
+#footer p {
+  font-size: 1rem;
+  color: white;
+}
+
+.opacar {
+  background: white;
+  opacity: 0.3;
+}
+
+#cartelGanador {
+  display: none;
+}
+
+.cartel-ganador {
+  text-align: center;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 15%;
+}
+
+.cartel-ganador h3 {
+  width: 360px;
+  margin-left:auto;
+  margin-right:auto;
+  background: #E84A5F;
+  border-radius: 0.5rem;
+  font-size: 2rem;
+  color: white;
+  padding: 4rem;
+  letter-spacing: 0.5rem;
+  text-align: center;
+}
+
+.cartel-ganador button {
+  background: transparent;
+  border: 2px solid #E84A5F;
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+  margin: 2%;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
