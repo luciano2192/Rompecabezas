@@ -11,6 +11,12 @@ var grilla = [
   [7, 8, 9]
 ];
 
+var grillaOrdenada = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+
 /* Estas dos variables son para guardar la posición de la pieza vacía.
 Esta posición comienza siendo la [2, 2]*/
 var filaVacia = 2;
@@ -29,32 +35,34 @@ function mostrarInstrucciones() {
 /* COMPLETAR: Crear función que agregue la última dirección al arreglo de movimientos
 y utilice actualizarUltimoMovimiento para mostrarlo en pantalla */
 function agregarUltimoMovimiento(direccion) {
-  for (var i = 0; i < movimientos.length; i++) {
-    movimientos[i].push(direccion);
-  }
+  movimientos.push(direccion);
   actualizarUltimoMovimiento(direccion);
 }
 /* Esta función va a chequear si el Rompecabezas esta en la posicion ganadora.
 Existen diferentes formas de hacer este chequeo a partir de la grilla. */
+
 function chequearSiGano() {
-  var grillaOrdenada = grilla;
-  for (var i = 0; i < grilla.length; i++) {
-    for (var j = 0; j < grilla[i].length; j++) {
-      if (grillaOrdenada !== grilla) {
-        return false;
-      } else {
-        return true;
-      }
-    }
-  }
+ for (var i = 0; i < grilla.length; i++) {
+   for (var j = 0; j < grilla[i].length; j++) {
+     if (grilla[i][j]!==grillaOrdenada[i][j]) {
+       return false;
+     }
+   }
+ }
+ return true;
 }
 
 // Implementar alguna forma de mostrar un cartel que avise que ganaste el juego
 function mostrarCartelGanador() {
   if (chequearSiGano()===true) {
-    document.querySelector('#cartelGanador').display = 'block';
-    document.querySelector('.col-40', 'col-60').classList.add('opacar'); //agrego clase a las columnas
+    document.getElementById('cartelGanador').style.display = 'block';
+    document.querySelector('.col-40').classList.add('opacar');
+    document.querySelector('.col-60').classList.add('opacar');
   }
+}
+
+function reiniciar() {
+  location.reload();
 }
 
 /* Función que intercambia dos posiciones en la grilla.
@@ -68,39 +76,29 @@ En vez de intercambiar esos valores vamos a terminar teniendo en ambas posicione
 Se te ocurre cómo solucionar esto con una variable temporal?
 */
 function intercambiarPosicionesGrilla(filaPos1, columnaPos1, filaPos2, columnaPos2) {
-  var filaTemporal;
-  var colTemporal;
-  var grillaTemporal = [
-    [filaTemporal][colTemporal],
-  ];
-  grillaTemporal = grilla[filaPos1][columnaPos1];
+
+  var grillaTemporal = grilla[filaPos1][columnaPos1];
   grilla[filaPos1][columnaPos1] = grilla[filaPos2][columnaPos2];
+  grilla[filaPos2][columnaPos2] = grillaTemporal;
 }
 
 // Actualiza la posición de la pieza vacía
 function actualizarPosicionVacia(nuevaFila, nuevaColumna) {
-  while (chequearSiGano()===false) {
-    filaVacia=moverEnDireccion(nuevaFila);
-    columnaVacia=moverEnDireccion(nuevaColumna);
-    if (posicionValida(filaVacia,columnaVacia)===true) {
-      agregarUltimoMovimiento(filaVacia);
-      agregarUltimoMovimiento(columnaVacia);
-    }
+  if (posicionValida(nuevaFila, nuevaColumna)===true) {
+  filaVacia = nuevaFila;
+  columnaVacia = nuevaColumna;
+  agregarUltimoMovimiento(filaVacia);
+  agregarUltimoMovimiento(columnaVacia);
   }
 }
 
 
 // Para chequear si la posicón está dentro de la grilla.
 function posicionValida(fila, columna) {
-  for (var i = 0; i < grilla.length; i++) {
-    for (var j = 0; j < grilla.length; j++) {
-      if (fila > grilla.length || columna > grilla.length) {
-        alert('no es posible');
-        return false;
-      } else {
-        return true;
-      }
-    }
+  if (fila > 2 || fila < 0 || columna > 2 ||columna < 0) {
+    return false;
+  } else {
+    return true;
   }
 }
 
@@ -112,13 +110,13 @@ function moverEnDireccion(direccion) {
 
   // Mueve pieza hacia la abajo, reemplazandola con la blanca
   if (direccion === codigosDireccion.ABAJO) {
-    nuevaFilaPiezaVacia = filaVacia - 1;
+    nuevaFilaPiezaVacia = filaVacia + 1;
     nuevaColumnaPiezaVacia = columnaVacia;
   }
 
   // Mueve pieza hacia arriba, reemplazandola con la blanca
   else if (direccion === codigosDireccion.ARRIBA) {
-    nuevaFilaPiezaVacia = filaVacia + 1;
+    nuevaFilaPiezaVacia = filaVacia - 1;
     nuevaColumnaPiezaVacia = columnaVacia;
   }
 
